@@ -2,3 +2,8 @@
 !.gitignore
 !file-struct.tar
 !change-struct.tar
+!file-researcher.sh
+!file-researcher/**
+!file-researcher/
+!tests/
+!tests/file_researcher_test.sh
