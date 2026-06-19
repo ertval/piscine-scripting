@@ -1,7 +1,7 @@
 *
 !.gitignore
 !hello-devops.sh
-!\\\?\$\*'Hard_file'\*\$\?\\"
+!\"\\\?\$\*'Hard_file'\*\$\?\\"
 !firstFile
-!medium_File!
+!"medium_File!"
 !file-struct.tar
