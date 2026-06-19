@@ -45,7 +45,7 @@ Spawn a `cavecrew-builder` subagent for this phase. Do NOT wait for Phase 4 to s
 
 The subagent must:
 1. **Create Test Suite**: Create a mock-based or assertion-based test runner script (similar to `hello_devops_test.sh`) to thoroughly test your script's execution paths and default options.
-2. **Update .gitignore**: Add the test scripts, logs, and any generated test outputs to the `.gitignore` file.
+ 2. **Update .gitignore**: Add the test scripts, logs, and any generated test outputs to `.gitignore`. Test files must NOT be un-ignored or tracked by git — only production scripts and source files should have `!` entries.
 3. **Execute Tests**: Run the tests locally and ensure they pass with a `0` exit code.
 4. **Unignore Output Files**: Identify files the scripts produce/read that must be tracked. Add `!<path>` entries to `.gitignore` only for those required files — no blanket directory unignores unless every file inside must be tracked.
 5. **Verify Staging**: Run `git status` to confirm only intended files are tracked and no ignored artifacts leak through.
