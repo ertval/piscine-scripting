@@ -11,5 +11,3 @@
 !find-files-extension.sh
 !count-files.sh
 !skip-lines.sh
-!.opencode/
-!.opencode/**
