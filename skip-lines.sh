@@ -2,4 +2,4 @@
 
 set -eu
 
-sed -n 'p;n'
+ls -l | awk 'NR % 2 == 1'
