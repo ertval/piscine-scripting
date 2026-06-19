@@ -18,7 +18,7 @@ All shell commands MUST be prefixed with the `rtk` command to optimize context s
 
 ## 2. Karpathy Guidelines
 
-Follow the 4 principles of software engineering to minimize coding errors:
+Follow the 4 principles of software engineering to minimize coding errors (see details in the local [karpathy-guidelines](file:///home/ertval/code/zone-modules/piscine-scripting/.agents/skills/karpathy-guidelines/SKILL.md) skill):
 1. **Think Before Coding**: Explicitly state assumptions, surface tradeoffs, and clarify ambiguity.
 2. **Simplicity First**: Write the minimum amount of code to solve the problem. Nothing speculative.
 3. **Surgical Changes**: Touch only what you must. Match existing style.
