@@ -1,11 +1,8 @@
 #!/usr/bin/env bash
 
-set -euo pipefail
+set -eu
 
 URL="https://assets.01-edu.org/devops-branch/HeadTail.txt"
 
-curl -s "$URL" > /tmp/HeadTail.txt
-head -1 /tmp/HeadTail.txt
-tail -1 /tmp/HeadTail.txt
-printf '\n'
-rm -f /tmp/HeadTail.txt
+curl -s "$URL" | head -1
+curl -s "$URL" | tail -1
