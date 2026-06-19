@@ -11,3 +11,5 @@
 !tests/head-and-tail_test.sh
 !head-and-tail.sh
 !json-researcher.sh
+!find-files.sh
+!tests/find-files_test.sh
