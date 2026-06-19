@@ -8,4 +8,6 @@
 !tests/
 !tests/file_researcher_test.sh
 !tests/json_researcher_test.sh
+!tests/head-and-tail_test.sh
+!head-and-tail.sh
 !json-researcher.sh
