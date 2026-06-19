@@ -17,3 +17,5 @@
 !tests/find-files-extension_test.sh
 !count-files.sh
 !tests/count-files_test.sh
+!skip-lines.sh
+!tests/skip-lines_test.sh
