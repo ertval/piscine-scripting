@@ -27,16 +27,19 @@ bash "$SCRIPT" > /dev/null 2>&1
 assert_eq "exit code is 0" "0" "$?"
 
 echo "--- Test 2: first line starts with expected prefix ---"
-first=$(bash "$SCRIPT" | head -1)
+bash "$SCRIPT" > /tmp/headtail_test.txt 2>&1
+first=$(head -1 /tmp/headtail_test.txt)
 assert_eq "first line prefix" "Hello My username is:" "${first:0:21}"
 
 echo "--- Test 3: second line starts with expected prefix ---"
-last=$(bash "$SCRIPT" | tail -2 | head -1)
+last=$(tail -2 /tmp/headtail_test.txt | head -1)
 assert_eq "last line prefix" "so my passwd is:" "${last:0:16}"
 
 echo "--- Test 4: third line (via cat -e) is present ---"
-line_count=$(bash "$SCRIPT" | cat -e | wc -l | tr -d ' ')
+line_count=$(cat -e /tmp/headtail_test.txt | wc -l | tr -d ' ')
 assert_eq "3 lines with cat -e" "3" "$line_count"
+
+rm -f /tmp/headtail_test.txt
 
 echo ""
 echo "=== Results ==="
