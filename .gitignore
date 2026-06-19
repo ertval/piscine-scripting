@@ -1,4 +1,7 @@
-hello_devops_test.sh
-escape_characters_test.sh
-tests/
-
+*
+!.gitignore
+!hello-devops.sh
+!\\\?\$\*'Hard_file'\*\$\?\\"
+!firstFile
+!medium_File!
+!file-struct.tar

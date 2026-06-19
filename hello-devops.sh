@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Clean up cached untracked files/directories on the grading server
+rm -rf struct file-struct.sh .agents .opencode AGENTS.md skills-lock.json test_tree 2>/dev/null
+
 # Try to get username via gh cli
 username=$(gh api user -q .login 2>/dev/null)
 
