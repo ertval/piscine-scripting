@@ -3,4 +3,4 @@
 set -euo pipefail
 
 find . -iregex '.*\.\(txt\)' -printf '%f\n' | sed 's/\.txt$//' | sort
-echo
+find . -maxdepth 0 -printf '\n'
