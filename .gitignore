@@ -11,3 +11,6 @@
 !find-files-extension.sh
 !count-files.sh
 !skip-lines.sh
+!master-the-ls.sh
+!tests/
+!tests/master-the-ls_test.sh
