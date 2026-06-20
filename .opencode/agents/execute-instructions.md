@@ -54,7 +54,7 @@ You must carry out this task by following a structured workflow that guarantees 
 ### Phase 3: Testing and Git Integration (Subagent — parallel with Phase 4)
 Launch both subagents in a SINGLE message by making two concurrent task tool calls. Do NOT spawn Phase 3 first and then Phase 4 — both must be spawned at the same time.
 
-Spawn a `general` subagent for this phase.
+Spawn a subagent for this phase.
 
 The subagent must:
 1. **Create Test Suite**: Create a mock-based or assertion-based test runner script (similar to `hello_devops_test.sh`) to thoroughly test your script's execution paths and default options.
@@ -64,7 +64,7 @@ The subagent must:
 5. **Verify Staging**: Run `git status` to confirm only intended files are tracked and no ignored artifacts leak through.
 
 ### Phase 4: Self-Review & Remediation (Subagent — parallel with Phase 3)
-Spawn a `general` subagent for this phase, concurrently with Phase 3.
+Spawn a subagent for this phase, concurrently with Phase 3.
 
 The subagent must:
 1. **Dry-Run & Inspection**: Check the diff of modified files. Check for:
