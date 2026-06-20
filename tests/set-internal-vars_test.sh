@@ -4,7 +4,7 @@ set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 ROOT_DIR="$(dirname "$SCRIPT_DIR")"
-SCRIPT="$ROOT_DIR/skip-lines.sh"
+SCRIPT="$ROOT_DIR/set-internal-vars.sh"
 
 pass=0
 fail=0
@@ -26,16 +26,16 @@ echo "--- Test 1: exit code 0 ---"
 bash "$SCRIPT" > /dev/null 2>&1
 assert_eq "exit code is 0" "0" "$?"
 
-echo "--- Test 2: skips odd lines (only even lines remain) ---"
-total=$(bash "$SCRIPT" 2>/dev/null | wc -l)
-full=$(ls -l | wc -l)
-expected=$(( full / 2 ))
-assert_eq "even line count matches" "$expected" "$total"
-
-echo "--- Test 3: first output line matches ls -l line 2 ---"
-first_out=$(bash "$SCRIPT" 2>/dev/null | sed -n '1p')
-first_in=$(ls -l | sed -n '2p')
-assert_eq "first line matches" "$first_in" "$first_out"
+echo "--- Test 2: stdout matches expected ---"
+output=$(bash "$SCRIPT")
+expected=$(cat <<'EOF'
+Hello World
+100
+3.142
+one, two, three, four, five
+EOF
+)
+assert_eq "output matches exactly" "$expected" "$output"
 
 echo ""
 echo "=== Results ==="
