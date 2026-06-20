@@ -19,3 +19,5 @@ show-info.sh
 tests/easy-conditions_test.sh
 tests/hard-conditions_test.sh
 tests/burial_test.sh
+tests/in-back-ground_test.sh
+
