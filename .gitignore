@@ -16,3 +16,4 @@ songs.txt
 results.txt
 tests/input-redirection_test.sh
 show-info.sh
+tests/easy-conditions_test.sh
