@@ -36,15 +36,6 @@
 | 21 | **Claude Sonnet 4.6 (Adaptive, Max Effort)** | $3,355.85 | 46.4 | $72.32 | ↑ |
 | 22 | **Claude Fable 5** | $6,227.74 | 76.5 | $81.41 | Worst |
 
-### Free / Zero-Cost Models (Cost = $0.00)
-
-| # | Model | Cost (USD) | Coding Index | Cost/Perf |
-|---|---|---|---|---|
-| 23 | GPT-5.5 Pro (xhigh) | $0.00 | — | $0.00 |
-| 24 | Muse Spark | $0.00 | — | $0.00 |
-| 25 | Gemma 4 31B (Reasoning) | $0.00 | 38.7 | $0.00 |
-| 26 | Solar Pro 3 | $0.00 | — | $0.00 |
-
 ### Missing Data
 
 | # | Model | Cost (USD) | Coding Index |
@@ -55,11 +46,39 @@
 
 ---
 
+## Subscription-Adjusted Costs ($20/mo Plans)
+
+Estimated substitution multipliers (API value per $1 spent): **ChatGPT Plus ~2×**, **Claude Pro ~2–3×** (heavy Opus users). Effective cost = API cost ÷ substitution factor. Shows what benchmark would cost if run via subscription instead of pay-per-token.
+
+| Model | API Cost | Sub Plan | Sub Factor | Sub Cost | Coding Index | Sub Cost/Perf |
+|---|---|---|---|---|---|---|
+| GPT-5.5 (xhigh) | $2,588.36 | Plus ($20/mo) | 2× | $1,294.18 | 74.9 | $17.28 |
+| GPT-5.4 mini (xhigh) | $1,157.55 | Plus ($20/mo) | 2× | $578.78 | 51.5 | $11.24 |
+| Claude Fable 5 | $6,227.74 | Pro ($20/mo) | 2× | $3,113.87 | 76.5 | $40.70 |
+| Claude Opus 4.8 (Adaptive, Max) | $4,011.58 | Pro ($20/mo) | 3× | $1,337.19 | 56.7 | $23.58 |
+| Claude Sonnet 4.6 (Adaptive, Max) | $3,355.85 | Pro ($20/mo) | 2× | $1,677.93 | 46.4 | $36.16 |
+| Claude Opus 4.5 (Reasoning) | $2,968.69 | Pro ($20/mo) | 3× | $989.56 | 47.8 | $20.70 |
+| Claude 4.5 Haiku (Reasoning) | $583.03 | Pro ($20/mo) | 2× | $291.52 | 43.9 | $6.64 |
+
+> **Note:** Substitution factor varies by usage pattern. 2× = typical moderate user (sub costs ~2× API equivalent). 3× = heavy Opus user where sub beats API. Source: aipricing.guru, stacktrim.com, pine.ai, bswen.com analyses.
+
+---
+
 ## Key Takeaways
 
-**Worst value (highest cost per coding point):**
+**Under subscription plans ($20/mo):**
+- ChatGPT Plus (~2× substitution): GPT-5.5 drops from $34.56/pt to $17.28/pt — competitive with DeepSeek V4 Pro ($3.79/pt) but still 4.6× more per point
+- Claude Pro with heavy Opus usage (~3×): Opus 4.8 goes from $70.75/pt → $23.58/pt, Opus 4.5 from $62.11/pt → $20.70/pt — closes gap with GPT-5.5 ($17.28/pt)
+- Claude Pro with moderate Sonnet usage (~2×): Fable 5 stays expensive at $40.70/pt, Sonnet 4.6 at $36.16/pt — still worst value even with sub discount
+- Claude 4.5 Haiku under Pro ($6.64/pt) becomes competitive with MiMo-V2.5-Pro ($2.18/pt) and GPT-5.4 mini ($11.24/pt)
+
+**Worst value (highest cost per coding point) — API pricing:**
 - Claude Fable 5 at $81.41/pt — 10× more expensive per coding point than the next best Anthropic model
-- Anthropic models dominate the bottom 4 slots (Claude Fable 5, Sonnet 4.6, Opus 4.8, Opus 4.5 Reasoning)
+- Anthropic models dominate the bottom 4 slots (Fable 5, Sonnet 4.6, Opus 4.8, Opus 4.5 Reasoning)
+
+**Worst value — subscription-adjusted:**
+- Claude Fable 5 still worst at $40.70/pt (Pro, 2×)
+- Sonnet 4.6 ($36.16/pt) and Opus 4.8 ($23.58/pt) improve but remain expensive vs API-first competitors
 
 **Best value (lowest cost per coding point among paid models):**
 - gpt-oss-20B ($1.04/pt) — dirt cheap open model
@@ -68,9 +87,10 @@
 - DeepSeek V4 Pro ($3.79/pt) — excellent value for near-frontier intelligence
 
 **Standouts:**
-- DeepSeek V4 Pro (Max) achieves Coding Index 47.5 at only $179.81 total eval cost — 22× cheaper per coding point than Claude Opus 4.8 at similar capability level
+- DeepSeek V4 Pro achieves Coding Index 47.5 at only $179.81 total eval cost — 22× cheaper per coding point than Claude Opus 4.8 at similar capability level
 - Gemini 3.1 Pro Preview matches GLM-5.2 at Coding Index 68.8 but costs slightly less per point ($12.50 vs $12.63)
-- Among proprietary frontier models, GPT-5.5 (xhigh) offers best value at $34.56/pt vs $70–81 for Claude equivalents
+- Among proprietary frontier models, GPT-5.5 (xhigh) offers best API value at $34.56/pt; with Plus sub it drops to $17.28/pt, competitive but still 4.6× DeepSeek V4 Pro
+- Subscriptions help Anthropic models most (3× for Opus heavy users) but don't close the gap with open-weight / DeepSeek alternatives
 
 ---
 
