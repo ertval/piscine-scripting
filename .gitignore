@@ -18,3 +18,5 @@
 !hard-perm.sh
 !hard-perm/**
 !hard-perm/
+!file-details.sh
+!hard-perm/
