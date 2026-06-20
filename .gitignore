@@ -16,5 +16,5 @@
 !tests/master-the-ls_test.sh
 !hello-devops.sh
 !hard-perm.sh
+!hard-perm/**
 !hard-perm/
-!tests/hard-perm_test.sh
