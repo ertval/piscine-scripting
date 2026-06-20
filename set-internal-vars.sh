@@ -8,6 +8,4 @@ MY_ARR=(one two three four five)
 echo "$MY_MESSAGE"
 echo "$MY_NUM"
 echo "$MY_PI"
-printf '%s' "${MY_ARR[0]}"
-printf ', %s' "${MY_ARR[@]:1}"
-printf '\n'
+echo "${MY_ARR[@]}"

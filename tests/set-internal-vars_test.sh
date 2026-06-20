@@ -32,7 +32,7 @@ expected=$(cat <<'EOF'
 Hello World
 100
 3.142
-one, two, three, four, five
+one two three four five
 EOF
 )
 assert_eq "output matches exactly" "$expected" "$output"
