@@ -9,3 +9,5 @@ package-lock.json
 skills-logs.json
 *.log
 filtered_files.txt
+songs.txt
+results.txt
