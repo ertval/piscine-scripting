@@ -4,38 +4,54 @@ set -e
 
 SCRIPT_PATH="$(cd "$(dirname "$0")/.." && pwd)/file-details.sh"
 
-# Change to a temp dir WITHOUT hard-perm/ to verify script finds it via SCRIPT_DIR
-TEST_DIR=$(mktemp -d)
-trap 'rm -rf "$TEST_DIR"' EXIT
+run_test() {
+    local label="$1" output line_num name
 
-cd "$TEST_DIR"
+    output=$(bash "$SCRIPT_PATH")
 
-# Run script from a directory that has no hard-perm/ subfolder
-OUTPUT=$(bash "$SCRIPT_PATH")
-
-# Test: output not empty
-if [ -z "$OUTPUT" ]; then
-    echo "FAIL: empty output"
-    exit 1
-fi
-
-# Test: each line has 4 fields
-LINE_NUM=0
-while IFS= read -r line; do
-    LINE_NUM=$((LINE_NUM + 1))
-    FIELDS=$(echo "$line" | awk '{print NF}')
-    if [ "$FIELDS" -ne 4 ]; then
-        echo "FAIL: line $LINE_NUM has $FIELDS fields, expected 4: $line"
+    if [ -z "$output" ]; then
+        echo "FAIL [$label]: empty output"
         exit 1
     fi
-done <<< "$OUTPUT"
 
-# Test: filenames 0-9 and A all present
-for name in 0 1 2 3 4 5 6 7 8 9 A; do
-    if ! echo "$OUTPUT" | grep -q "$name$"; then
-        echo "FAIL: filename $name not found in output"
-        exit 1
-    fi
-done
+    line_num=0
+    while IFS= read -r line; do
+        line_num=$((line_num + 1))
+        fields=$(echo "$line" | awk '{print NF}')
+        if [ "$fields" -ne 4 ]; then
+            echo "FAIL [$label]: line $line_num has $fields fields, expected 4: $line"
+            exit 1
+        fi
+    done <<< "$output"
 
-echo "PASS: file-details_test — $LINE_NUM lines, all 4 fields, all filenames present"
+    for name in 0 1 2 3 4 5 6 7 8 9 A; do
+        if ! echo "$output" | grep -q "$name$"; then
+            echo "FAIL [$label]: filename $name not found"
+            exit 1
+        fi
+    done
+
+    echo "PASS [$label]: $line_num lines, 4 fields each, all filenames"
+}
+
+# Test 1: CWD has hard-perm/ (grader scenario)
+td1=$(mktemp -d)
+trap 'rm -rf "$td1"' EXIT
+cd "$td1"
+mkdir -p hard-perm/0 hard-perm/3 hard-perm/A
+touch hard-perm/{1,2,4,5,6,7,8,9}
+chmod 401 hard-perm/0 hard-perm/A
+chmod 777 hard-perm/3
+chmod 402 hard-perm/1 hard-perm/9
+chmod 604 hard-perm/2 hard-perm/8
+chmod 510 hard-perm/4 hard-perm/7
+chmod 460 hard-perm/5 hard-perm/6
+run_test "CWD has hard-perm/"
+
+# Test 2: CWD has NO hard-perm/ (fallback to SCRIPT_DIR)
+td2=$(mktemp -d)
+trap 'rm -rf "$td2"' EXIT
+cd "$td2"
+run_test "no hard-perm in CWD"
+
+echo "=== ALL TESTS PASSED ==="
