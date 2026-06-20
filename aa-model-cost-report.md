@@ -46,51 +46,62 @@
 
 ---
 
-## Subscription-Adjusted Costs ($20/mo Plans)
+## Subscription-Adjusted Costs
 
-Estimated substitution multipliers (API value per $1 spent): **ChatGPT Plus ~2×**, **Claude Pro ~2–3×** (heavy Opus users). Effective cost = API cost ÷ substitution factor. Shows what benchmark would cost if run via subscription instead of pay-per-token.
+Effective cost of running AA evaluations via subscription vs pay-per-token. Substitution multiplier = API-equivalent monthly value ÷ subscription price. Sources: openai.com/pricing, help.openai.com, fritz.ai/chatgpt-pricing, cloudzero.com/blog/claude-api-pricing, aionx.co, tokenmix.ai, cursor.com/pricing.
 
-| Model | API Cost | Sub Plan | Sub Factor | Sub Cost | Coding Index | Sub Cost/Perf |
+### Plan Details & Verified Substitution Multipliers
+
+| Plan | Price | Models Included | Monthly API-Equivalent | Multiplier |
+|---|---|---|---|---|
+| ChatGPT Plus | $20/mo | GPT-5.5, GPT-5.4 mini, Deep Research (10/mo), Sora | ~$102.50 (5K msgs + fringe) | **~5.1×** |
+| ChatGPT Pro | $200/mo | GPT-5.5 Pro, o3-pro, 250 Deep Research/mo, 1M ctx | ~$2,400 (100K msgs + features) | **~12×** |
+| Claude Pro | $20/mo | Sonnet 4.6 only (NO Opus) | ~$32.50 (3K Sonnet msgs) | **~1.6×** |
+| Claude Max 5× | $100/mo | Sonnet 4.6 + Opus 4.7 unlocked | ~$195 (15K Opus msgs) | **~2.0×** |
+| Claude Max 20× | $200/mo | Sonnet 4.6 + Opus 4.7, zero-latency priority | ~$780 (60K Opus msgs) | **~3.9×** |
+
+### Effective Cost Per Model Under Available Plans
+
+Sub Cost/Perf = (API Cost ÷ Multiplier) ÷ Coding Index. Empty cells = model not available on that plan.
+
+| Model | API Cost/Perf | Plus $20 (5.1×) | Pro $200 (12×) | Pro $20 (1.6×) | Max 5× $100 (2.0×) | Max 20× $200 (3.9×) |
 |---|---|---|---|---|---|---|
-| GPT-5.5 (xhigh) | $2,588.36 | Plus ($20/mo) | 2× | $1,294.18 | 74.9 | $17.28 |
-| GPT-5.4 mini (xhigh) | $1,157.55 | Plus ($20/mo) | 2× | $578.78 | 51.5 | $11.24 |
-| Claude Fable 5 | $6,227.74 | Pro ($20/mo) | 2× | $3,113.87 | 76.5 | $40.70 |
-| Claude Opus 4.8 (Adaptive, Max) | $4,011.58 | Pro ($20/mo) | 3× | $1,337.19 | 56.7 | $23.58 |
-| Claude Sonnet 4.6 (Adaptive, Max) | $3,355.85 | Pro ($20/mo) | 2× | $1,677.93 | 46.4 | $36.16 |
-| Claude Opus 4.5 (Reasoning) | $2,968.69 | Pro ($20/mo) | 3× | $989.56 | 47.8 | $20.70 |
-| Claude 4.5 Haiku (Reasoning) | $583.03 | Pro ($20/mo) | 2× | $291.52 | 43.9 | $6.64 |
+| GPT-5.5 (xhigh) | $34.56 | **$6.78** | **$2.88** | — | — | — |
+| GPT-5.4 mini (xhigh) | $22.48 | **$4.41** | **$1.87** | — | — | — |
+| Claude 4.5 Haiku (Reas.) | $13.28 | — | — | $8.30 | **$6.64** | $3.41 |
+| Claude Sonnet 4.6 (Adap, Max) | $72.32 | — | — | **$45.20** | $36.16 | $18.55 |
+| Claude Opus 4.5 (Reasoning) | $62.11 | — | — | — | **$31.05** | $15.93 |
+| Claude Opus 4.8 (Adap, Max) | $70.75 | — | — | — | **$35.38** | $18.14 |
+| Claude Fable 5 | $81.41 | — | — | — | $40.70 | **$20.88** |
 
-> **Note:** Substitution factor varies by usage pattern. 2× = typical moderate user (sub costs ~2× API equivalent). 3× = heavy Opus user where sub beats API. Source: aipricing.guru, stacktrim.com, pine.ai, bswen.com analyses.
+> **Key insight:** ChatGPT Pro $200/mo at 12× makes GPT-5.5 ($2.88/pt) cheaper per coding point than DeepSeek V4 Pro ($3.79/pt) — the first time a proprietary frontier model beats it on cost/performance under subscription. Claude Max 20× brings Fable 5 from $81.41 → $20.88/pt, competitive with GPT-5.5 API pricing ($34.56/pt).
 
 ---
 
 ## Key Takeaways
 
-**Under subscription plans ($20/mo):**
-- ChatGPT Plus (~2× substitution): GPT-5.5 drops from $34.56/pt to $17.28/pt — competitive with DeepSeek V4 Pro ($3.79/pt) but still 4.6× more per point
-- Claude Pro with heavy Opus usage (~3×): Opus 4.8 goes from $70.75/pt → $23.58/pt, Opus 4.5 from $62.11/pt → $20.70/pt — closes gap with GPT-5.5 ($17.28/pt)
-- Claude Pro with moderate Sonnet usage (~2×): Fable 5 stays expensive at $40.70/pt, Sonnet 4.6 at $36.16/pt — still worst value even with sub discount
-- Claude 4.5 Haiku under Pro ($6.64/pt) becomes competitive with MiMo-V2.5-Pro ($2.18/pt) and GPT-5.4 mini ($11.24/pt)
+**Under subscription plans (verified multipliers):**
+- **ChatGPT Plus (5.1×):** GPT-5.5 drops $34.56/pt → $6.78/pt — now competitive with MiMo-V2.5-Pro ($2.18/pt) and DeepSeek V4 Pro ($3.79/pt)
+- **ChatGPT Pro $200 (12×):** GPT-5.5 hits $2.88/pt — beats DeepSeek V4 Pro ($3.79/pt) on cost/performance for the first time among proprietary frontier models. GPT-5.4 mini at $1.87/pt rivals MiMo-V2.5-Pro ($2.18/pt)
+- **Claude Pro (1.6×):** Weakest multiplier of all plans. Pro only includes Sonnet 4.6 (+ Haiku). Sonnet 4.6 drops $72.32 → $45.20/pt — still worst value in the entire dataset even after sub discount. Haiku drops $13.28 → $8.30/pt
+- **Claude Max 5× (2.0×):** Unlocks Opus. Opus 4.5 goes $62.11 → $31.05/pt, Opus 4.8 $70.75 → $35.38/pt — still 9× more expensive per point than DeepSeek V4 Pro
+- **Claude Max 20× (3.9×):** Fable 5 drops $81.41 → $20.88/pt — competitive with API GPT-5.5 ($34.56/pt) but still 5.5× DeepSeek V4 Pro
 
-**Worst value (highest cost per coding point) — API pricing:**
-- Claude Fable 5 at $81.41/pt — 10× more expensive per coding point than the next best Anthropic model
-- Anthropic models dominate the bottom 4 slots (Fable 5, Sonnet 4.6, Opus 4.8, Opus 4.5 Reasoning)
+**Worst value (highest cost per coding point):**
+- API: Claude Fable 5 at $81.41/pt — 10× more expensive per coding point than next best Anthropic
+- Sub-adjusted: Sonnet 4.6 on Pro ($45.20/pt) still worst; Fable 5 on Max 20× ($20.88/pt) improves but remains expensive
 
-**Worst value — subscription-adjusted:**
-- Claude Fable 5 still worst at $40.70/pt (Pro, 2×)
-- Sonnet 4.6 ($36.16/pt) and Opus 4.8 ($23.58/pt) improve but remain expensive vs API-first competitors
-
-**Best value (lowest cost per coding point among paid models):**
+**Best value (lowest cost per coding point):**
 - gpt-oss-20B ($1.04/pt) — dirt cheap open model
 - DeepSeek V4 Flash ($2.03/pt) — best value frontier-ish model
-- MiMo-V2.5-Pro ($2.18/pt) — strong open-weight contender
-- DeepSeek V4 Pro ($3.79/pt) — excellent value for near-frontier intelligence
+- GPT-5.4 mini on Pro $200 ($1.87/pt) — best value proprietary model under subscription
+- GPT-5.5 on Pro $200 ($2.88/pt) — beats DeepSeek V4 Pro ($3.79/pt) for the first time
 
 **Standouts:**
-- DeepSeek V4 Pro achieves Coding Index 47.5 at only $179.81 total eval cost — 22× cheaper per coding point than Claude Opus 4.8 at similar capability level
-- Gemini 3.1 Pro Preview matches GLM-5.2 at Coding Index 68.8 but costs slightly less per point ($12.50 vs $12.63)
-- Among proprietary frontier models, GPT-5.5 (xhigh) offers best API value at $34.56/pt; with Plus sub it drops to $17.28/pt, competitive but still 4.6× DeepSeek V4 Pro
-- Subscriptions help Anthropic models most (3× for Opus heavy users) but don't close the gap with open-weight / DeepSeek alternatives
+- DeepSeek V4 Pro achieves Coding Index 47.5 at $179.81 eval cost — still 22× cheaper per coding point than Claude Opus 4.8 at similar capability level, even after sub adjustments
+- ChatGPT Pro $200 (12×) is the only plan where proprietary models beat DeepSeek and open-weight on cost/performance
+- Claude Pro (1.6×) offers the worst subscription value — you pay nearly API rates for capped Sonnet access. Opus requires Max at $100-200/mo
+- Subscriptions help Anthropic models most in absolute dollars (Fable 5: $81.41 → $20.88) but ratios remain unfavorable vs API-first competitors
 
 ---
 
