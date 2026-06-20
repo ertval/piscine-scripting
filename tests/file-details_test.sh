@@ -2,28 +2,15 @@
 
 set -e
 
-SCRIPT_PATH="/home/ertval/code/zone-modules/piscine-scripting/file-details.sh"
+SCRIPT_PATH="$(cd "$(dirname "$0")/.." && pwd)/file-details.sh"
 
+# Change to a temp dir WITHOUT hard-perm/ to verify script finds it via SCRIPT_DIR
 TEST_DIR=$(mktemp -d)
 trap 'rm -rf "$TEST_DIR"' EXIT
 
 cd "$TEST_DIR"
 
-# Setup hard-perm/ structure
-mkdir -p hard-perm/0 hard-perm/3 hard-perm/A
-touch hard-perm/{1,2,4,5,6,7,8,9}
-
-# Set permissions: dirs
-chmod 401 hard-perm/0 hard-perm/A
-chmod 777 hard-perm/3
-
-# Set permissions: files
-chmod 402 hard-perm/1 hard-perm/9
-chmod 604 hard-perm/2 hard-perm/8
-chmod 510 hard-perm/4 hard-perm/7
-chmod 460 hard-perm/5 hard-perm/6
-
-# Run script
+# Run script from a directory that has no hard-perm/ subfolder
 OUTPUT=$(bash "$SCRIPT_PATH")
 
 # Test: output not empty
