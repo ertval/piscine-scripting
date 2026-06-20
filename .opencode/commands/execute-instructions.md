@@ -41,7 +41,7 @@ You must carry out this task by following a structured workflow that guarantees 
    - Quote variables properly to handle spaces and special characters.
 
 ### Phase 3: Testing and Git Integration (Subagent — parallel with Phase 4)
-Spawn a `builder` subagent for this phase. Do NOT wait for Phase 4 to start — launch both Phase 3 and Phase 4 subagents concurrently.
+Spawn a subagent for this phase. Do NOT wait for Phase 4 to start — launch both Phase 3 and Phase 4 subagents concurrently.
 
 The subagent must:
 1. **Create Test Suite**: Create a mock-based or assertion-based test runner script (similar to `hello_devops_test.sh`) to thoroughly test your script's execution paths and default options.
@@ -51,7 +51,7 @@ The subagent must:
 5. **Verify Staging**: Run `git status` to confirm only intended files are tracked and no ignored artifacts leak through.
 
 ### Phase 4: Self-Review & Remediation (Subagent — parallel with Phase 3)
-Spawn a `reviewer` subagent for this phase, concurrently with Phase 3.
+Spawn a subagent for this phase, concurrently with Phase 3.
 
 The subagent must:
 1. **Dry-Run & Inspection**: Check the diff of modified files. Check for:

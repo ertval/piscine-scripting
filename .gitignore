@@ -14,3 +14,5 @@ skills-logs.json
 filtered_files.txt
 songs.txt
 results.txt
+tests/input-redirection_test.sh
+show-info.sh
