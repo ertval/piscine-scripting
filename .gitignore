@@ -1,6 +1,5 @@
-# ignore .agents folder .opencode skills and tests
+# ignore .agents folder, .tests, and auto-generated .opencode artifacts
 .agents/
-.opencode/
 .tests/
 node_modules/
 yarn.lock
