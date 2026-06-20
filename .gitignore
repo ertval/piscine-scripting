@@ -8,3 +8,4 @@ yarn-error.log
 package-lock.json 
 skills-logs.json
 *.log
+filtered_files.txt
