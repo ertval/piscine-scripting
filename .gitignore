@@ -1,5 +1,8 @@
 # ignore .agents folder, .tests, and auto-generated .opencode artifacts
-.agents/
+.agents/*
+!.agents/agents/
+.agents/agents/*
+!.agents/agents/execute-instructions.md
 .tests/
 node_modules/
 yarn.lock
