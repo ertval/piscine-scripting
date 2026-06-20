@@ -54,16 +54,6 @@ Effective cost of running AA evaluations via subscription vs pay-per-token. Subs
 
 > **⚠️ Multiplier varies enormously by workload (0.08× to 197×).** Casual chat ($4-9/mo API) makes subscriptions 2-10× more expensive. Maxed-out agentic coding makes subscriptions 35-197× cheaper than API. AA benchmark evals are short single-turn prompts (no context accumulation) — closest to "power user" token count per request (~1,500 in + 500 out) at high volume. Benchmark-appropriate multipliers used below.
 
-### Plan Details — Models Included
-
-| Plan | Price | Model Access |
-|---|---|---|
-| ChatGPT Plus | $20/mo | GPT-5.5, GPT-5.4 mini, Deep Research (10/mo), Sora 720p |
-| ChatGPT Pro | $200/mo | +GPT-5.5 Pro, o3-pro, 250 Deep Research/mo, 1M ctx, Sora 1080p |
-| Claude Pro | $20/mo | Haiku 4.5, Sonnet 4.6, **Opus 4.8 (budget-limited)**, Fable 5 (budget-limited) |
-| Claude Max 5× | $100/mo | +Full Opus 4.8 access, Fable 5, 5× Pro usage limits |
-| Claude Max 20× | $200/mo | +20× Pro usage, zero-latency priority, early features |
-
 ### Effective Cost Per Model Under Available Plans
 
 Sub Cost/Perf = (API Cost ÷ Multiplier) ÷ Coding Index.

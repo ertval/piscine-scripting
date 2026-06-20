@@ -6,8 +6,9 @@ SCRIPT_PATH="$(cd "$(dirname "$0")/.." && pwd)/file-details.sh"
 
 run_test() {
     local label="$1" output line_num name
+    shift
 
-    output=$(bash "$SCRIPT_PATH")
+    output=$(bash "$SCRIPT_PATH" "$@")
 
     if [ -z "$output" ]; then
         echo "FAIL [$label]: empty output"
@@ -53,5 +54,8 @@ td2=$(mktemp -d)
 trap 'rm -rf "$td2"' EXIT
 cd "$td2"
 run_test "no hard-perm in CWD"
+
+# Test 3: Path passed as argument
+run_test "Path passed as argument" "$td1/hard-perm"
 
 echo "=== ALL TESTS PASSED ==="
