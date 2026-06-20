@@ -1,4 +1,4 @@
-# Artificial Analysis — Model Cost vs Coding Performance Report
+# Artificial Analysis — Model Cost vs Coding Performance
 
 **Date:** 2026-06-20
 **Data Source:** [artificialanalysis.ai](https://artificialanalysis.ai) model pages, [benchlm.ai](https://benchlm.ai/benchmarks/aaCodingIndex), [modelgrep.com](https://modelgrep.com/best/coding)
@@ -8,6 +8,8 @@
 - **Cost/Performance:** Cost ÷ Coding Index (higher = worse value)
 
 ---
+
+> **Models surpassing Coding Index ~45 reach Opus 4.5-level intelligence — critical mass for effective autonomous coding work.** Below this threshold, models require significant supervision and prompt engineering. Above it, they can handle complex multi-step coding tasks reliably. DeepSeek V4 Pro (47.5), MiMo-V2.5-Pro (45.5), GPT-5.4 mini (51.5), and all frontier models above index 45 are in this tier.
 
 ## Sorted by Cost/Performance (Ascending — Best to Worst Value)
 
