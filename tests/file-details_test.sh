@@ -58,4 +58,8 @@ run_test "no hard-perm in CWD"
 # Test 3: Path passed as argument
 run_test "Path passed as argument" "$td1/hard-perm"
 
+# Test 4: CWD is hard-perm/ (inside the directory)
+cd "$td1/hard-perm"
+run_test "CWD is hard-perm/"
+
 echo "=== ALL TESTS PASSED ==="

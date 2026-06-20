@@ -2,9 +2,13 @@
 
 set -euo pipefail
 
-HARD_PERM_DIR="${1:-hard-perm}"
-
-if [ $# -eq 0 ] && [ ! -d "$HARD_PERM_DIR" ]; then
+if [ -n "${1:-}" ]; then
+    HARD_PERM_DIR="$1"
+elif [ "$(basename "$PWD")" = "hard-perm" ]; then
+    HARD_PERM_DIR="."
+elif [ -d "hard-perm" ]; then
+    HARD_PERM_DIR="hard-perm"
+else
     SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
     HARD_PERM_DIR="$SCRIPT_DIR/hard-perm"
 fi
