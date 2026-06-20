@@ -18,4 +18,4 @@ tests/input-redirection_test.sh
 show-info.sh
 tests/easy-conditions_test.sh
 tests/hard-conditions_test.sh
-
+tests/burial_test.sh
