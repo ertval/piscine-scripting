@@ -7,4 +7,5 @@ yarn.lock
 package-lock.json
 yarn-error.log
 package-lock.json 
-skills-logs.json 
+skills-logs.json
+*.log
