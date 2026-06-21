@@ -13,7 +13,8 @@ for arg in "$1" "$2"; do
 done
 
 case $2 in
-	0) echo "Error: division by zero is not allowed."; exit 1 ;;
+	*[1-9]*) ;;
+	*) echo "Error: division by zero is not allowed."; exit 1 ;;
 esac
 
 printf '%s / %s\n' "$1" "$2" | bc
