@@ -8,8 +8,16 @@ case $# in
 		;;
 esac
 
+# Clean whitespaces (spaces, tabs, carriage returns) from arguments
+arg1="$1"
+arg2="$2"
+arg1="${arg1#${arg1%%[![:space:]]*}}"
+arg1="${arg1%${arg1##*[![:space:]]}}"
+arg2="${arg2#${arg2%%[![:space:]]*}}"
+arg2="${arg2%${arg2##*[![:space:]]}}"
+
 # Validate integers (optional single + or -, followed by digits)
-for arg in "$1" "$2"; do
+for arg in "$arg1" "$arg2"; do
 	case $arg in
 		*[!0-9+-]* | *[+-]*[+-]* | *[0-9][+-]* | '' | [-+] )
 			echo "Error: both arguments must be integers." >&2
@@ -19,7 +27,7 @@ for arg in "$1" "$2"; do
 done
 
 # Check for division by zero (any representation of zero: 0, -0, +0, 00, -00, etc.)
-case $2 in
+case $arg2 in
 	*[1-9]*)
 		;;
 	*)
@@ -29,4 +37,4 @@ case $2 in
 esac
 
 # Perform arbitrary precision integer division
-printf '%s / %s\n' "${1#+}" "${2#+}" | bc
+printf '%s / %s\n' "${arg1#+}" "${arg2#+}" | bc
