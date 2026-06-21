@@ -22,4 +22,5 @@ tests/burial_test.sh
 tests/in-back-ground_test.sh
 tests/plus_test.sh
 tests/divide_test.sh
+tests/array-selector_test.sh
 

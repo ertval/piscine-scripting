@@ -38,3 +38,8 @@ Always use the `caveman` skill to reduce context size.
 
 ## 5. Git push last changes
 Alwasy push after you made changes
+
+## 6. Context
+Always read the [PISCINE-HANDOUT.md](file:///home/ertval/code/zone-modules/piscine-scripting/PISCINE-HANDOUT.md) file for the current exercise context,test and solutions
+.
+
