@@ -25,4 +25,5 @@ tests/divide_test.sh
 tests/array-selector_test.sh
 tests/greatest-of-all_test.sh
 tests/comparator_test.sh
+tests/file-checker_test.sh
 
