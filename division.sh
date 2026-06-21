@@ -4,7 +4,7 @@
 if [ $# -ne 2 ]; then
 	echo "Error: two numbers must be provided"
 
-# Check if the arguments are numeric
+# # Check if the arguments are numeric
 elif ! [[ $1 =~ ^-?[0-9]*\.?[0-9]+$ ]] || ! [[ $2 =~ ^-?[0-9]*\.?[0-9]+$ ]]; then
 	echo "Error: both arguments must be numeric"
 
