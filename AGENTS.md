@@ -40,6 +40,5 @@ Always use the `caveman` skill to reduce context size.
 Alwasy push after you made changes
 
 ## 6. Context
-Always read the [PISCINE-HANDOUT.md](file:///home/ertval/code/zone-modules/piscine-scripting/PISCINE-HANDOUT.md) file for the current exercise context,test and solutions
-.
+Always read the [PISCINE-HANDOUT.md](file:///home/ertval/code/zone-modules/piscine-scripting/PISCINE-HANDOUT.md) file for the current exercise context,test and solutions.
 
