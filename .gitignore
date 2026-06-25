@@ -33,5 +33,6 @@ tests/check-user_test.sh
 
 # Python test artifacts
 shopping_test.py
+tests/clean_the_list_test.py
 __pycache__/
 
