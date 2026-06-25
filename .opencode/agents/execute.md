@@ -1,7 +1,6 @@
 ---
 name: execute
-description: >
-  Primary agent that executes custom instructions: parses requirements,
+description: Primary agent that executes custom instructions: parses requirements,
   creates scripts/tests, runs validation, reviews code, commits, and pushes.
 model: opencode/deepseek-v4-flash-free
 permission:
