@@ -31,3 +31,7 @@ tests/joker-num_test.sh
 tests/grades_test.sh
 tests/check-user_test.sh
 
+# Python test artifacts
+shopping_test.py
+__pycache__/
+
